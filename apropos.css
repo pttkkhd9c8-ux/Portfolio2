@@ -488,25 +488,6 @@ article img {
 }
 
 
-/* ===== Contact (bloc vert) ===== */
-#contact a {
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-decoration-color: var(--blanc);
-}
-
-#contact a:hover {
-    color: var(--blanc);
-    text-decoration-color: var(--accent);
-}
-
-#contact .bouton {
-    display: block;
-    width: fit-content;
-    margin-top: 1rem;
-    background: var(--accent);
-    text-decoration: none;
-}
 
 /* ===== Pied de page ===== */
 footer {

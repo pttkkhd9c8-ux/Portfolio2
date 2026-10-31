@@ -157,152 +157,6 @@ header nav a {
     }
 }
 
-/* ===== Page d'accueil (hero) : <section id="accueil"> ===== */
-#accueil {
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 2rem;
-    row-gap: 0;
-    align-items: center;
-    overflow: hidden;
-    padding-top: 3.5rem;
-    padding-bottom: 6rem;
-    background-color: var(--nuit);
-    background-image: linear-gradient(rgb(26 16 34 / 0.82), rgb(26 16 34 / 0.82)),
-        url("images/fond.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-/* pas de vague tout en haut : la barre fixe est juste au-dessus */
-#accueil::before {
-    display: none;
-}
-
-#accueil>* {
-    position: relative;
-    z-index: 1;
-}
-
-/* forme décorative en bas à gauche */
-#accueil::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    left: -5rem;
-    bottom: -4rem;
-    width: 16rem;
-    height: 10rem;
-    background: var(--accent);
-    border-radius: 55% 45% 50% 50% / 60% 55% 45% 40%;
-    transform: rotate(-8deg);
-}
-
-.surtitre {
-    margin: 0 0 0.5rem;
-    color: var(--accent-2);
-    font-family: var(--titre);
-    font-size: 1rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-}
-
-#accueil h1 {
-    margin: 0 0 1.25rem;
-    font-family: var(--titre);
-    font-weight: 400;
-    font-size: clamp(3rem, 9vw, 5.5rem);
-    line-height: 1;
-    text-shadow: 4px 4px 0 var(--accent);
-}
-
-#accueil h1 span {
-    color: var(--accent-2);
-}
-
-#accueil>p {
-    margin: 0 0 1.75rem;
-    font-size: 1.15rem;
-}
-
-#accueil>.bouton {
-    justify-self: start;
-}
-
-/* --- visuel : <figure> avec photo blob, formes derrière et note --- */
-.hero-visuel {
-    margin: 3rem auto 0;
-    width: min(100%, 26rem);
-}
-
-.hero-visuel::before,
-.hero-visuel::after {
-    content: "";
-    position: absolute;
-    border-radius: 45% 55% 40% 60% / 55% 40% 60% 45%;
-}
-
-/* grosse forme verte derrière la photo */
-.hero-visuel::before {
-    inset: 12% -8% -6% 14%;
-    background: var(--vert);
-    border: var(--trait);
-    transform: rotate(6deg);
-}
-
-/* contour fin */
-.hero-visuel::after {
-    inset: -5% 16% 8% -12%;
-    border: 3px solid var(--accent-2);
-    transform: rotate(-10deg);
-}
-
-.hero-visuel img {
-    position: relative;
-    z-index: 1;
-    display: block;
-    width: 100%;
-}
-
-/* la petite note penchée = <figcaption class="note"> */
-.note {
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    z-index: 2;
-    margin: 0;
-    color: var(--accent-2);
-    font-family: var(--titre);
-    font-size: 1.3rem;
-    line-height: 1.2;
-    transform: rotate(-8deg);
-}
-
-/* photo en forme de blob (class="blob") */
-img.blob {
-    aspect-ratio: 1;
-    object-fit: cover;
-    border: var(--trait);
-    border-radius: var(--blob);
-    box-shadow: 8px 8px 0 var(--accent);
-}
-
-@keyframes pop {
-    0% {
-        transform: scale(0.6) rotate(-6deg);
-        opacity: 0;
-    }
-
-    60% {
-        transform: scale(1.06) rotate(2deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: none;
-    }
-}
-
 /* ===== Menu ===== */
 nav {
     display: flex;
@@ -470,6 +324,7 @@ article img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1.75rem;
+    margin-bottom: 3rem;
 }
 
 #projets>h2,
@@ -480,6 +335,7 @@ article img {
 
 #projets article {
     box-shadow: 6px 6px 0 var(--accent);
+    padding-bottom: 1.5rem;
 }
 
 #projets article+article {
@@ -489,36 +345,6 @@ article img {
 #projets article:hover {
     transform: translate(-3px, -3px) rotate(-0.7deg);
     box-shadow: 9px 9px 0 var(--accent-2);
-}
-
-/* ===== Compétences ===== */
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#competences ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-}
-
-#competences li {
-    padding: 0.3rem 1.1rem;
-    border: var(--trait);
-    border-radius: 999px;
-    background: var(--blanc);
-    box-shadow: 4px 4px 0 var(--accent);
-    font-family: var(--titre);
-    font-size: 1.3rem;
-    transition: transform 0.15s, background 0.15s, color 0.15s;
-}
-
-#competences li:hover {
-    background: var(--accent);
-    color: var(--blanc);
-    transform: rotate(-3deg);
 }
 
 /* ===== Contact (bloc vert) ===== */
@@ -534,9 +360,13 @@ ul {
 }
 
 #contact .bouton {
+    display: block;
+    width: fit-content;
+    margin-top: 1rem;
     background: var(--accent);
     text-decoration: none;
 }
+
 
 /* ===== Pied de page ===== */
 footer {
@@ -565,6 +395,8 @@ footer ul {
     justify-content: center;
     gap: 0.5rem 1.75rem;
     margin-bottom: 1.25rem;
+    padding: 0;
+    list-style: none;
 }
 
 /* ===== Grand écran : accueil en 2 colonnes ===== */
@@ -654,6 +486,17 @@ nav a[aria-current="page"] {
 }
 
 /* ===== Page Projets : titre de page + carte "à venir" ===== */
+#projets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1.75rem;
+    background: var(--nuit);
+    background-image: linear-gradient(rgb(26 16 34 / 0.82), rgb(26 16 34 / 0.82)),
+        url("images/fond.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
 #projets>h1 {
     grid-column: 1 / -1;
     justify-self: start;

@@ -733,3 +733,11 @@ footer ul {
 #competences ul.niveaux li[data-niveau]::after {
     font-size: var(--t-petit);
 }
+
+#niveaux i {
+    display: inline-block;
+    max-width: 100%;
+    color: var(--blanc);
+    font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.9rem);
+    line-height: 1;
+}
